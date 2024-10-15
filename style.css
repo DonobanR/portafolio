@@ -1,59 +1,103 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    text-align: center;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Section Styles */
-  section {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  /* Footer Styles */
-  footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background: url('Images/cabecera.gif') no-repeat center center;
+  background-size: cover;
+  height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 140px 0 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Home Section */
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.info-izquierda p {
+  display: flex;
+  align-items: center;
+  align-items: flex-start; 
+  gap: 8px; /* Espacio entre el icono y el enlace */
+}
+
+.resumen-derecha {
+  flex-grow: 1; 
+  padding: 20px; 
+}
+
+.icono {
+  width: 24px;
+  height: 24px;
+}
+
+.resumen-derecha {
+  max-width: 60%;
+}
+
+.resumen-derecha h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.resumen-derecha p {
+  line-height: 1.6;
+}
+
+/* Sections */
+section {
+  margin: 40px;
+}
+
+section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
