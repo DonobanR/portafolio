@@ -239,3 +239,15 @@ h3{
 .seccion {
   padding: 20px;
 }
+
+/* Media Queries para ajustar el diseño en diferentes resoluciones */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Cambia la dirección a columna en pantallas más pequeñas */
+    margin: 100px 0 0; /* Ajusta el margen */
+  }
+
+  #home {
+    flex-direction: column; /* Cambia la dirección a columna en pantallas más pequeñas */
+  }
+}
