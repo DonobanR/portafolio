@@ -17,6 +17,20 @@ header {
   padding: 20px;
 }
 
+/* Media Query para Pantallas Pequeñas (Formato Móvil) */
+@media (max-width: 768px) {
+  header {
+    background-size: cover;
+    height: 120px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+  
+}
+
 /*Estilo de cabecera*/
 
 nav ul {
@@ -48,7 +62,7 @@ nav ul li a::after {
   left: 0;
   bottom: 0;
   width: 0%;
-  height: 2px;
+  
   background-color: #3498db; 
   transition: width 0.3s ease; 
 }
@@ -60,6 +74,24 @@ nav ul li a:hover::after {
 
 nav ul li a:hover {
   color: #3498db; 
+}
+
+/* --- Estilos para Pantallas Pequeñas (Formato Móvil) --- */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: row; /* Mantener los ítems en horizontal */
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    margin: 10px 0; /* Reducir el margen superior */
+    padding: 80px;
+  }
+
+  nav ul li {
+    margin: 5px; /* Reducir espacio entre ítems */
+  }
+
+  nav ul li a {
+    font-size: 14px; /* Ajustar tamaño de fuente para pantallas pequeñas */
+  }
 }
 
 /* About me */
@@ -159,6 +191,13 @@ footer {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  footer {
+    font-size: 14px; /* Reducir ligeramente el tamaño en móviles */
+    padding: 10px 5px; /* Espaciado más compacto */
+  }
+}
+
 /* Sections */
 section {
   margin: 40px;
@@ -178,13 +217,33 @@ footer {
   color: white;
 }
 
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+  #home {
+    flex-direction: column; /* Columnas en una sola fila */
+    align-items: center; /* Alinear el contenido al centro */
+  }
+
+  .info-izquierda, 
+  .resumen-derecha {
+    width: 100%; /* Cada columna ocupa el 100% */
+    max-width: none; /* Sin límite de ancho */
+    margin-bottom: 20px; /* Espacio entre las secciones */
+  }
+
+  .foto-perfil {
+    width: 120px;
+    height: 120px;
+  }
+}
 
 /* Estilos para los proyectos */
 
 .contenedor {
-  display: grid; 
-  grid-template-columns: repeat(3, 2fr); 
-  gap: 20px; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas en desktop */
+  gap: 20px;
+  padding: 20px;
 }
 
 .grupo {
@@ -209,13 +268,13 @@ footer {
 }
 
 .proyecto img {
-  width: 300px;
+  width: 100%; /* La imagen ocupa todo el ancho disponible */
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-h3{
+h3 {
   margin: 10px 0;
 }
 
@@ -234,20 +293,28 @@ h3{
   background-color: #0056b3;
 }
 
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets y móviles grandes */
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    gap: 10px;
+  }
+
+  .proyecto img {
+    height: auto; /* Ajusta la altura para que sea proporcional */
+  }
+}
+
+
 /* Este CSS oculta todos los elementos excepto la sección de proyectos */
 
 .seccion {
   padding: 20px;
-}
-
-/* Media Queries para ajustar el diseño en diferentes resoluciones */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column; /* Cambia la dirección a columna en pantallas más pequeñas */
-    margin: 100px 0 0; /* Ajusta el margen */
-  }
-
-  #home {
-    flex-direction: column; /* Cambia la dirección a columna en pantallas más pequeñas */
-  }
 }
