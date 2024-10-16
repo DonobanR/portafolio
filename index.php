@@ -7,22 +7,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Poppins:wght@600;700&family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
     <nav>
         <ul>
-            <li><a href="#acerca-de-mi">Acerca de mí</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#certificaciones">Certificaciones</a></li>
+            <li><a href="#" class="nav-link" data-target="home">Acerca de mí</a></li>
+            <li><a href="#" class="nav-link" data-target="proyectos">Proyectos</a></li>
+            <li><a href="#" class="nav-link" data-target="certificaciones">Certificaciones</a></li>
         </ul>
     </nav>
 </header>
 
-<section class="home">
+
+<section id="home" class="active">
   <div class="info-izquierda">
     <img src="Images/foto.jpg" alt="Foto de Donoban Ramon" class="foto-perfil">
-    <p>País: Ecuador</p>
+    <p><strong>Desarrollador de software en:</strong></p>
+    <ul class="lista-tecnologias">
+      <li>Aplicaciones Desktop</li>
+      <li>Aplicaciones Web</li>
+    </ul>
+    <p><strong>País:</strong> Ecuador</p>
     <p>
       <img src="Images/github-icon.png" alt="GitHub" class="icono">
       <a href="https://github.com/DonobanR" target="_blank">GitHub</a>
@@ -31,7 +38,21 @@
       <img src="Images/linkedin-icon.png" alt="LinkedIn" class="icono">
       <a href="https://www.linkedin.com/in/donoban-ramón-219ab5275/" target="_blank">LinkedIn</a>
     </p>
+
+    <div class="recuadro" >
+      <h2>Acerca de mí</h2>
+        <p>
+          Estudiante en ingeniería de software en la Escuela Politécnica
+          Nacional de Ecuador, aporto una sólida base en habilidades
+          técnicas y analíticas. Tengo experiencia en entornos de trabajo 
+          dinámicos que valoran el compromiso y el trabajo en equipo, y soy
+          reconocido por mi proactividad
+        </p>
+    </div>
+
+
   </div>
+
 
   <div class="resumen-derecha">
 
@@ -88,32 +109,22 @@
         <img src="https://img.shields.io/badge/Azure%20DevOps-0078D4?style=for-the-badge&amp;logo=azuredevops&amp;logoColor=white" alt="Azure DevOps" />
         <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&amp;logo=jenkins&amp;logoColor=white" alt="Jenkins" />
     </p>
-  </ul>
 </div>
-
 </section>
 
-<section id="acerca-de-mi">
-  <h2>Acerca de mí</h2>
-  <p>
-    Estudiante en ingeniería de software en la Escuela Politécnica
-    Nacional de Ecuador, aporto una sólida base en habilidades
-    técnicas y analíticas. Mi formación incluye la graduación como
-    técnico en servicios contables en la Escuela Augusto Arias, lo
-    que me ha dotado de habilidades versátiles y la capacidad de
-    gestionar múltiples tareas de manera eficiente. Tengo
-    experiencia en entornos de trabajo dinámicos que valoran el
-    compromiso y el trabajo en equipo, y soy reconocido por mi
-    proactividad y entusiasmo
-  </p>
-</section>
-
-<section id="proyectos">
+<section id="proyectos" style="display: none;">
   <h2>Proyectos</h2>
-  <ul id="repos"></ul>
+  <div class="grupo">
+    <h3>Proyectos Personales</h3>
+    <div class="contenedor" id="contenedorPersonales"></div>
+  </div>
+  <div class="grupo">
+    <h3>Proyectos en los que Participé</h3>
+    <div class="contenedor" id="contenedorParticipacion"></div>
+  </div>
 </section>
 
-<section id="certificaciones">
+<section id="certificaciones" style="display: none;">
   <h2>Certificaciones</h2>
   <ul>
     <li>Certificación en Desarrollo Web</li>
@@ -126,20 +137,63 @@
   <p>&copy; 2024 Mi Portafolio. Todos los derechos reservados.</p>
 </footer>
 
-<script>
-  const githubUser = 'DonobanR';
-  fetch(`https://api.github.com/users/${githubUser}/repos`)
-    .then(response => response.json())
-    .then(data => {
-      const reposList = document.getElementById('repos');
-      data.forEach(repo => {
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
-        reposList.appendChild(li);
-      });
-    })
-    .catch(error => console.error('Error al obtener los repositorios:', error));
-</script>
 
+<script>
+  //Logica para la demostracion de los proyectos personales o que participé
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('gestorProyecto.php')
+        .then(response => response.json())
+        .then(proyectos => {
+          const contenedorPersonales = document.getElementById('contenedorPersonales');
+          const contenedorParticipacion = document.getElementById('contenedorParticipacion');
+
+          proyectos.forEach(proyecto => {
+            const div = document.createElement('div');
+            div.classList.add('proyecto');
+            div.innerHTML = `
+              <img src="${proyecto.imagen}" alt="Imagen del proyecto">
+              <h3>${proyecto.titulo}</h3>
+              <a href="${proyecto.link}" target="_blank" class="btn-abrir">Abrir</a>
+            `;
+
+            if (proyecto.tipo === 'personal') {
+              contenedorPersonales.appendChild(div);
+            } else {
+              contenedorParticipacion.appendChild(div);
+            }
+          });
+        })
+        .catch(error => console.error('Error al obtener los proyectos:', error));
+    });
+
+    //Logica para navegar entre secciones
+    document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+      section.style.display = 'none'; // Ocultar todas las secciones
+    });
+    document.getElementById('home').style.display = 'block'; // Mostrar solo "home"
+
+    // Manejar clics en los enlaces
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+        const target = this.getAttribute('data-target');
+
+        // Ocultar todas las secciones
+        sections.forEach(section => {
+          section.style.display = 'none';
+        });
+
+        // Mostrar la sección correspondiente
+        document.getElementById(target).style.display = 'block';
+      });
+    });
+  });
+  
+</script>
+  
 </body>
 </html>
