@@ -3,37 +3,37 @@
 $proyectos = [
     [
         'titulo' => 'Sistema punto de venta',
-        'imagen' => 'Images/SistemaPuntoVenta.png',
+        'imagen' => 'imagesProyects/SistemaPuntoVenta.png',
         'link' => 'https://github.com/DonobanR/Sistema-punto-de-venta',
         'tipo' => 'participacion'
     ],
     [
         'titulo' => 'Nodo venta de electrodomésticos',
-        'imagen' => 'Images/nodoVentaSur.png',
+        'imagen' => 'imagesProyects/nodoVentaSur.png',
         'link' => 'https://github.com/DonobanR/AplicacionNodoSur_EjemploBDD',
         'tipo' => 'personal'
     ],
     [
         'titulo' => 'Portafolio personal',
-        'imagen' => 'Images/myPortafolio.png',
+        'imagen' => 'imagesProyects/myPortafolio.png',
         'link' => 'https://github.com/DonobanR/Pagina',
         'tipo' => 'personal'
     ],
     [
         'titulo' => 'Sokoban',
-        'imagen' => 'Images/sokoban.png',
+        'imagen' => 'imagesProyects/sokoban.png',
         'link' => 'https://github.com/DonobanR/Sokoban_In_JAVA',
         'tipo' => 'personal'
     ],
     [
         'titulo' => 'SharpShooter',
-        'imagen' => 'Images/SharpShooter.png',
+        'imagen' => 'imagesProyects/SharpShooter.png',
         'link' => 'https://github.com/DonobanR/OpenGL_SharpShooter_2024A_GR1SW_GR5',
         'tipo' => 'participacion'
     ],
     [
         'titulo' => 'Traductor Braille to Text y viceversa',
-        'imagen' => 'Images/brailleToText.jpeg',
+        'imagen' => 'imagesProyects/brailleToText.jpeg',
         'link' => 'https://github.com/JoelPiuri/TraductorBrailleATexto',
         'tipo' => 'participacion'
     ]

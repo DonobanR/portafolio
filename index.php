@@ -6,6 +6,7 @@
   <title>Mi Portafolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Poppins:wght@600;700&family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styleMobil.css">
 </head>
 
 <body>
@@ -31,11 +32,11 @@
     </ul>
     <p><strong>País:</strong> Ecuador</p>
     <p>
-      <img src="Images/github-icon.png" alt="GitHub" class="icono">
+      <img src="icon/github-icon.png" alt="GitHub" class="icono">
       <a href="https://github.com/DonobanR" target="_blank">GitHub</a>
     </p>
     <p>
-      <img src="Images/linkedin-icon.png" alt="LinkedIn" class="icono">
+      <img src="icon/linkedin-icon.png" alt="LinkedIn" class="icono">
       <a href="https://www.linkedin.com/in/donoban-ramón-219ab5275/" target="_blank">LinkedIn</a>
     </p>
 
