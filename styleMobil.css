@@ -1,38 +1,5 @@
 /* Media Query para Pantallas Pequeñas (Formato Móvil) */
 @media (max-width: 768px) {
-    header {
-      background: url('Images/cabecera_movil.png') no-repeat center center;
-      background-size: cover;
-      height: 120px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 20px;
-    }
-  }
-
-  /* --- Estilos para Pantallas Pequeñas (Formato Móvil) --- */
-@media (max-width: 768px) {
-    nav ul {
-      flex-direction: row;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      transform: translateY(100px); /* Ajusta el texto hacia abajo */
-    }
-  
-    nav ul li {
-      margin: 5px; /* Reducir espacio entre ítems */
-    }
-  
-    nav ul li a {
-      font-size: 14px; /* Ajustar tamaño de fuente para pantallas pequeñas */
-    }
-  }
-
-  @media (max-width: 768px) {
     footer {
       font-size: 14px; /* Reducir ligeramente el tamaño en móviles */
       padding: 10px 5px; /* Espaciado más compacto */

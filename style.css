@@ -8,74 +8,173 @@ body {
   box-sizing: border-box;
 }
 
+/* Estilos generales del header */
 header {
   background: url('Images/cabecera.gif') no-repeat center center;
   background-size: cover;
-  height: 200px;
+  position: relative;
+  height: 100px;
+  width: auto;
   color: white;
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 10px;
 }
 
-/*Estilo de cabecera*/
+header h1 {
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 0;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  top: -40px;
+  animation: moverTextoH1 20s linear infinite;
+}
 
+@keyframes moverTextoH1 {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -10%;
+  }
+}
+
+/* Estilo de la lista de navegación */
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   padding: 0;
-  margin: 180px 0 0;
+  margin: -10px;
 }
 
 nav ul li {
   margin: 0 10px;
-  position: relative; 
 }
 
 nav ul li a {
   text-decoration: none;
   color: white;
   font-size: 18px;
-  position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease; 
-}
-
-/* Pseudo-elemento para la barra */
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  
-  background-color: #3498db; 
-  transition: width 0.3s ease; 
-}
-
-/* Efecto hover para mostrar la barra */
-nav ul li a:hover::after {
-  width: 100%; 
+  padding: 2px 0;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #3498db; 
+  color: #3498db;
+}
+
+/* Media Queries para pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  /* Esconder la lista de navegación en pantallas pequeñas inicialmente */
+  .nav-list {
+    display: none;
+    flex-direction: column; /* Menú vertical */
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #333;
+    padding: 10px;
+  }
+
+  /* Mostrar el botón solo en pantallas pequeñas */
+  .menu-toggle {
+    margin-top: -30px;
+    display: block;
+    background-color: hsl(12, 5%, 37%);
+    color: white;
+    border: none;
+    border-radius: 15%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .nav-list {
+    display: none; /* Oculta el menú inicialmente */
+    position: absolute;
+    left: 77px; /* Alinea el menú a la derecha */
+    background-color: hsl(12, 5%, 30%);
+    width: 150px;
+    height: 100%; /* Opción para ocupar toda la altura */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15x;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); /* Fuera de la vista inicialmente */
+}
+
+  /* Al hacer clic en el botón, se mostrará el menú */
+  .nav-list.active {
+    display:flex;
+    transform: translateX(0);
+  }
+
+  /* Ajustar estilo de los enlaces en la vista móvil */
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+/* Media Queries para pantallas grandes (más de 768px) */
+@media (min-width: 769px) {
+  /* Esconder el botón en pantallas grandes */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Mostrar la lista de navegación en horizontal en pantallas grandes */
+  .nav-list {
+    display: flex;
+    flex-direction: row; /* Menú horizontal */
+    position: static;
+    background: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 0 10px;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
 }
 
 /* About me */
 
 /* Recuadro estético para secciones */
-.recuadro {
-  background-color: #f9f9f9; /* Color de fondo diferente */
-  border: 1px solid #ccc;    /* Borde opcional */
-  padding: 20px;             /* Espaciado interno */
-  margin: 20px 0;           /* Espaciado externo */
-  border-radius: 5px;       /* Bordes redondeados */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
-  max-width: 500px;  
+#contenedorAcercaDeMi {
+  display: grid;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
 }
+
+.recuadro {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
 
 .recuadro h2 {
   font-size: 1.5em;          /* Tamaño de fuente para el encabezado */
@@ -87,8 +186,6 @@ nav ul li a:hover {
   color: #666;               /* Color del texto */
 }
 
-
-
 /* Home Section */
 #home {
   display: flex; /* Usar flexbox para alineación */
@@ -98,13 +195,21 @@ nav ul li a:hover {
 }
 
 .info-izquierda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   float: left;
-  width: 50%;
+  width: 30%;
+  padding-right: 30px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .resumen-derecha {
   float: right;
-  width: 50%;
+  width: 70%;
+  box-sizing: border-box;
 }
 
 .foto-perfil {
@@ -155,11 +260,13 @@ footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 1rem;
-  position: relative;
-  bottom: 0;
+  padding: 5px;
   width: 100%;
+  position: static;
+  bottom: 0;
 }
+
+
 /* Sections */
 section {
   margin: 10px;
@@ -171,13 +278,6 @@ section h2 {
   font-weight: 700;
   font-size: 1.8rem;
   margin-bottom: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
 }
 
 /* Estilos para los proyectos */
@@ -215,6 +315,10 @@ footer {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+#proyectos h2{
+  text-align: center;
 }
 
 h3 {
