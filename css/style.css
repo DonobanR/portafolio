@@ -22,7 +22,7 @@ header {
 }
 
 header h1 {
-  font-size: 50px;
+  font-size: 60px;
   font-family: 'Times New Roman', Times, serif;
   text-shadow: #555 5px 2px;
   margin-bottom: 0;
@@ -32,16 +32,16 @@ header h1 {
   position: relative;
   max-width: 100%;
   box-sizing: border-box;
-  top: -20px;
+  top: -15px;
   animation: moverTextoH1 20s linear infinite;
 }
 
 @keyframes moverTextoH1 {
   from {
-    left: 5%;
+    left: 0%;
   }
   to {
-    left: -15%;
+    left: -20%;
   }
 }
 
