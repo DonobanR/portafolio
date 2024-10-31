@@ -132,7 +132,10 @@ nav ul li a:hover {
   float: right;
   width: 70%;
   box-sizing: border-box;
+  min-height: 600px; /* Ajusta el tamaño mínimo según el contenido promedio */
+  margin-bottom: 20px; /* Agrega un margen si es necesario */
 }
+  
 
 .foto-perfil {
   width: 150px;
@@ -219,6 +222,16 @@ section h2 {
 
 .proyecto:hover {
   transform: scale(1.05);
+}
+
+img {
+  max-width: 100%;
+  width: auto\9;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  padding: 1px;
 }
 
 .proyecto img {
