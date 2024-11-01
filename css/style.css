@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -241,6 +242,10 @@ img {
   border-radius: 8px;
 }
 
+#proyectos {
+  min-height: 400px;
+}
+
 #proyectos h2{
   text-align: center;
 }
@@ -332,7 +337,7 @@ footer {
     align-items: center;
     padding: 10px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;;
     transform: translateX(-100%); /* Fuera de la vista inicialmente */
     box-sizing: border-box;
 }
