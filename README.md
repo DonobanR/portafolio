@@ -15,7 +15,6 @@ Este portafolio ha sido desarrollado utilizando las siguientes tecnologías:
 - HTML5
 - CSS3
 - JavaScript
-- PHP
 
 ## Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
