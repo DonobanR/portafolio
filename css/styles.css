@@ -118,13 +118,13 @@ header h1 {
 }
 
 .datos-mios span {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-top: 10px;
     text-align: center;
 }
 
 .datos-mios p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 30px 0px 10px 0px;
     text-transform: uppercase;
     text-align: center;
@@ -177,12 +177,12 @@ header h1 {
 
 .mi-descripcion h2 {
     margin: 19px 0px 19px 16px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .mi-descripcion p {
     margin: 0px 16px 16px 16px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .skills-mias {
@@ -190,6 +190,7 @@ header h1 {
     flex-direction: column;
     height: auto;
     width: auto;
+    font-size: 1.1rem;
 }
 
 .skills-mias p {
@@ -287,6 +288,7 @@ footer {
     margin-top: auto;
 }
 
+
 @media (max-width: 768px) {
     .menu {
         display: flex;
@@ -338,6 +340,15 @@ footer {
     font-size: 14px;
     }
 
+    @keyframes moverTexto {
+        from {
+            left: 0%;
+        }
+        to {
+            left: 1%;
+        }
+    }
+
 }
 
 @media (min-width: 769px) {
@@ -355,15 +366,6 @@ footer {
 
     header h1 {
         font-size: 3rem;
-    }
-
-    @keyframes moverTexto {
-        from {
-            left: 5%;
-        }
-        to {
-            left: 10%;
-        }
     }
 
     .contenedor {
@@ -399,10 +401,27 @@ footer {
 
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 471px) {
 
     header h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
+    }
+
+    @keyframes moverTexto {
+        from {
+            left: 2.8%;
+        }
+        to {
+            left: 10%;
+        }
+    }
+
+  }
+
+  @media (max-width: 320px) {
+
+    header h1 {
+        font-size: 2.2rem;
     }
 
     @keyframes moverTexto {
@@ -416,19 +435,10 @@ footer {
 
   }
 
-  @media (max-width: 320px) {
+  @media (max-height: 320px) {
 
     header h1 {
-        font-size: 2.4rem;
-    }
-
-    @keyframes moverTexto {
-        from {
-            left: 2.5%;
-        }
-        to {
-            left: 10%;
-        }
+        display: none;
     }
 
   }
