@@ -10,11 +10,19 @@ Bienvenido a mi portafolio web. Aquí encontrarás una colección de mis proyect
 
 ## Tecnologías Utilizadas
 
-Este portafolio ha sido desarrollado utilizando las siguientes tecnologías:
+El proyecto está organizado como una aplicación moderna con las siguientes herramientas:
 
-- HTML5
-- CSS3
-- JavaScript
+- [Vite](https://vitejs.dev/) para el bundling y el entorno de desarrollo.
+- [Express](https://expressjs.com/) para exponer endpoints sencillos desde el directorio `server/`.
+- [ESLint](https://eslint.org/) y [Prettier](https://prettier.io/) para mantener un estilo de código consistente.
+- [Vitest](https://vitest.dev/) para las pruebas unitarias.
+
+La estructura principal se divide en:
+
+- `src/`: Código del cliente organizado en subdirectorios de componentes, estilos y assets.
+- `server/`: Endpoints y servicios del backend.
+- `shared/`: Recursos compartidos entre el cliente y el servidor, como el catálogo de proyectos.
+- Configuración en la raíz (`vite.config.js`, `eslint.config.js`, `prettier.config.js`, etc.) para scripts de verificación y CI.
 
 ## Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
