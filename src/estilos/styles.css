@@ -7,6 +7,10 @@ html, body {
     box-sizing: border-box;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 /* Estilos para el header*/
 
 header {
