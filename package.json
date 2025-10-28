@@ -13,7 +13,9 @@
     "test": "vitest",
     "test:run": "vitest run",
     "check": "npm run lint && npm run format:check && npm run test:run",
-    "server": "node server/index.js"
+    "server": "node server/index.js",
+    "db:migrate": "node server/database/migrate.js",
+    "db:seed": "node server/database/migrate.js --seed"
   },
   "keywords": [],
   "author": "",
