@@ -7,7 +7,6 @@ import { getDatabaseFilePath } from './config.js';
 
 async function seedDatabase(filePath) {
   const orm = new JsonORM({ filePath });
-  const existing = await orm.findMany('projects');
 
   for (const project of projects) {
     await orm.upsert(
