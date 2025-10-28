@@ -1,5 +1,7 @@
 import { JsonORM } from '../database/orm.js';
 import { getDatabaseFilePath } from '../database/config.js';
+import { logger } from '../observability/logger.js';
+import { notifyContactMessage } from './notificationService.js';
 
 let ormInstance;
 
@@ -12,5 +14,14 @@ function getOrm() {
 
 export async function createContactMessage(data) {
   const orm = getOrm();
-  return orm.create('contactMessages', data);
+  const contactMessage = await orm.create('contactMessages', data);
+
+  logger.info('Nuevo mensaje de contacto recibido', {
+    email: contactMessage.email,
+    contactId: contactMessage.id
+  });
+
+  await notifyContactMessage(contactMessage);
+
+  return contactMessage;
 }

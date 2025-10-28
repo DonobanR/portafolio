@@ -26,3 +26,47 @@ La estructura principal se divide en:
 
 ## Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+## Automatización continua
+
+El repositorio incluye un flujo de trabajo de GitHub Actions (`.github/workflows/ci.yml`) que valida cada cambio ejecutando las tareas de lint (`npm run lint`), build (`npm run build`) y pruebas (`npm run test:run`). El pipeline usa Node.js 20 y aprovecha la caché de dependencias de npm. Para ejecutar correctamente las pruebas en CI se declaran las variables `NODE_ENV` y `DATABASE_FILE`, y cualquier secreto como `CONTACT_WEBHOOK_URL` debe configurarse en **Settings → Secrets and variables → Actions** del repositorio.
+
+## Contenedor Docker
+
+Se añade un `Dockerfile` multi-stage que compila el frontend y prepara el servidor Express listo para producción:
+
+```bash
+docker build -t portafolio-app .
+docker run --rm -p 3000:3000 \
+  -e PORT=3000 \
+  -e DATABASE_FILE=/data/database.json \
+  -e LOG_LEVEL=info \
+  -e CONTACT_WEBHOOK_URL=https://ejemplo.com/webhook \
+  -v $(pwd)/data:/data \
+  portafolio-app
+```
+
+El contenedor instala únicamente las dependencias de producción y expone el puerto `3000`. Las rutas de datos pueden montarse como volumen para persistir el archivo JSON.
+
+## Configuración de entorno y secretos
+
+El archivo `.env.example` documenta las variables necesarias:
+
+- `PORT`: puerto de escucha del servidor.
+- `DATABASE_FILE`: ubicación del archivo JSON que hace de base de datos.
+- `LOG_LEVEL`: controla el nivel de detalle de los logs.
+- `CONTACT_WEBHOOK_URL`: webhook opcional para notificar nuevos mensajes de contacto. Debe declararse como secreto en los entornos CI/CD o en la infraestructura de despliegue.
+
+En desarrollo local puede copiarse a `.env` y cargarlo con herramientas como [dotenv-cli](https://www.npmjs.com/package/dotenv-cli) o mediante el shell.
+
+## Monitoreo y registros
+
+El backend ahora incorpora utilidades básicas de observabilidad:
+
+- **Logs estructurados** controlados por `LOG_LEVEL`, emitidos por `server/observability/logger.js`.
+- **Métricas en memoria** que contabilizan peticiones, tiempos de respuesta y errores (`server/observability/metrics.js`).
+- **Middleware de auditoría** que registra cada solicitud (`server/observability/requestLogger.js`).
+- **Endpoint de salud** disponible en `GET /health`, que expone métricas, uptime y uso de recursos.
+- **Webhook opcional** para nuevos mensajes de contacto (`CONTACT_WEBHOOK_URL`), útil para integrarse con herramientas externas de monitoreo o notificación.
+
+Estas capacidades permiten detectar rápidamente fallos y facilitan la integración con servicios externos para observabilidad avanzada.
