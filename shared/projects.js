@@ -3,7 +3,7 @@ export const projects = [
     title: 'Sistema punto de venta',
     image: 'SistemaPuntoVenta.webp',
     link: 'https://github.com/DonobanR/Sistema-punto-de-venta',
-    type: 'participacion'
+    type: 'collaboration'
   },
   {
     title: 'Nodo venta de electrodomésticos',
@@ -27,12 +27,12 @@ export const projects = [
     title: 'SharpShooter',
     image: 'SharpShooter.webp',
     link: 'https://github.com/DonobanR/OpenGL_SharpShooter_2024A_GR1SW_GR5',
-    type: 'participacion'
+    type: 'collaboration'
   },
   {
     title: 'Traductor Braille to Text y viceversa',
     image: 'brailleToText.webp',
     link: 'https://github.com/JoelPiuri/TraductorBrailleATexto',
-    type: 'participacion'
+    type: 'collaboration'
   }
 ];
