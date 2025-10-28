@@ -10,8 +10,7 @@ function getOrm() {
   return ormInstance;
 }
 
-export async function listProjects() {
+export async function createContactMessage(data) {
   const orm = getOrm();
-  const projects = await orm.findMany('projects');
-  return projects.sort((left, right) => left.id - right.id);
+  return orm.create('contactMessages', data);
 }
